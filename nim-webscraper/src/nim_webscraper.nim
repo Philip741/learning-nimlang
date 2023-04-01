@@ -34,7 +34,7 @@ proc main() =
       let htmlContent = downloadPageContent(url)
       echo htmlContent
   elif matched == false and args.len > 0:
-      echo "Not a valid url use http or https://url.com"
+      echo "Not a valid url"
   
 when isMainModule:
   main()

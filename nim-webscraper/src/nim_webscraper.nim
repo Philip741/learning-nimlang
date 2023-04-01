@@ -9,11 +9,14 @@ proc downloadPageContent(url: string): string =
   client.close()
   return content
 
+proc printHelp(): void =
+  echo "Usage: nim-webscraper <url>"
+
 proc main() =
   var args = commandLineParams()
   var url = ""
   var matched = false
-  
+
   if args.len == 1:
     url = args[0]
     match url, rex"^https?://([a-z0-9-]+\.)+[a-z]{2,}(\/[^\s]*)?$":
@@ -21,7 +24,8 @@ proc main() =
       
 
   elif args.len == 0:
-    echo args.len
+    printHelp()
+  
   else:
       echo "Error: too many arguments"
  
